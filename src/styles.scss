@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  --main-bg: #161622;
+  --secondary-bg: #282739;
+  --main-text-color: #e0e0e0;
+  --secondary-text-color: #c4c4c4;
+  --ouline-color: #ff7403;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--main-bg);
+}

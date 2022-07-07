@@ -11,6 +11,9 @@
 npm-debug.log
 yarn-error.log
 
+# Images
+/src/assets/img
+
 # IDEs and editors
 .idea/
 .project
