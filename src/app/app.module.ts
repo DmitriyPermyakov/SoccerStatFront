@@ -9,6 +9,7 @@ import { LeaguesComponent } from './leagues/leagues.component';
 import { TeamCardComponent } from './team-card/team-card.component';
 import { LeagueCardComponent } from './league-card/league-card.component';
 import { SearchComponent } from './search/search.component';
+import { StandingsComponent } from './standings/standings.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SearchComponent } from './search/search.component';
     TeamCardComponent,
     LeagueCardComponent,
     SearchComponent,
+    StandingsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

@@ -1,7 +1,11 @@
 <nav class="navbar">
     <h1 class="main-icon"><span>S</span>occerStats</h1>
     <ul class="items">
-        <li>Leagues</li>
-        <li>Teams</li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/leagues']">Leagues</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/teams']">Teams</a>
+        </li>
     </ul>
 </nav>
