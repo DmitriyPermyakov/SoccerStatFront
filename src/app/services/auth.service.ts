@@ -7,7 +7,7 @@ import { LoginRequest, LoginResponse, RegisterRequest } from '../interfaces/inte
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
 
   get token(): string {
     return ''
