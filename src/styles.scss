@@ -5,6 +5,7 @@
   --main-text-color: #e0e0e0;
   --secondary-text-color: #c4c4c4;
   --outline-color: #ff7403;
+  --border-color: #bebebe80;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,4 +13,211 @@
 
 html {
   background-color: var(--main-bg);
+  color: var(--main-text-color);
+}
+
+body {
+  height: 100vh;
+  position: relative;
+}
+
+.btn-add {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--secondary-bg);
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+  transition: transform .1s;
+  outline: none;
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px 2px var(--outline-color);
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    width: 50%;
+    height: 3px;
+    background: var(--secondary-text-color);
+    position: absolute;
+    transform: translateX(50%);
+  }
+
+  &::before {
+    display: block;
+    content: "";
+    width: 50%;
+    height: 3px;
+    background: var(--secondary-text-color);
+    position: absolute;
+    transform: translateX(50%) rotate(90deg);
+  }
+}
+
+.form-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(19, 19, 30, 0.9);
+
+}
+
+.create-update-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 2em;
+  max-width: 500px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--secondary-bg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em;
+}
+
+.form-image-input {
+  display: none;
+}
+
+.form-image {
+  display: block;
+  margin: 2em 0 2em;
+  width: 150px;
+  height: 150px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background-color: var(--main-bg);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 3px 2px var(--outline-color);
+    border-color: transparent;
+  }
+}
+
+.form-create-name {
+  padding: .4em .8em;
+  width: 300px;
+  background-color: var(--main-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1.1em;
+  color: var(--secondary-text-color);
+  outline: none;
+
+  &:hover {
+    box-shadow: 0 0 3px 2px var(--outline-color);
+    border-color: transparent;
+  }
+}
+
+.create-form-label {
+  margin: 0 0 .5em .9em;
+  font-size: .9em;
+  color: var(--border-color);
+}
+
+.form-btn {
+   margin: 0 1em;
+   padding: .5em 1em;
+
+   background-color: var(--main-bg);
+   border: 1px solid var(--border-color);
+   border-radius: 10px;
+
+   font-family: inherit;
+   font-size: 1.1em;
+   color: var(--secondary-text-color);
+
+   &:hover {
+    box-shadow: 0 0 3px 2px var(--outline-color);
+    border-color: transparent;
+  }
+}
+
+.edit-delete-btn {
+  font-size: 25px;
+  color: var(--main-text-color);
+
+  width: 27px;
+  height: 27px;
+
+  border: none;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 10px;
+  left: 124px;
+
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+
+  &::after {
+    display: inline-block;
+    content: "\2807";
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: -4px;
+    right: -3px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px 2px var(--outline-color);
+  }
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+
+  width: 100px;
+  height: 50px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  background-color: var(--main-bg);
+
+  position: absolute;
+  top: 13px;
+  right: 14px;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  & button {
+    flex: 1 1 50%;
+    font-family: inherit;
+    font-size: 0.8em;
+    color: var(--secondary-text-color);
+    border: none;
+    background:none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+
+  & button:hover {
+      color: var(--outline-color);
+      text-decoration: underline;
+  }
 }

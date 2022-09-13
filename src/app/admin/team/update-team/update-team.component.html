@@ -1,0 +1,25 @@
+<div class="form-background" (click)="toCards()">
+    <form class="create-update-form" [formGroup]="form" (click)="$event.stopPropagation()">
+        <div class="form-group">
+            <img class="form-image" src="" alt="icon">
+            <!-- <input class="form-image-input" type="file" id="leagueimage" formControlName="leagueimage"> -->
+        </div>
+
+        <div class="form-group">
+            <label class="create-form-label" for="teamname">Team name</label>
+            <input class="form-create-name" id="teamname" type="text" formControlName="teamname">
+        </div>
+
+        <div class="form-group">
+            <label class="create-form-label" for="league">League</label>
+            <select class="form-create-name" formControlName="leaguename">
+                <option *ngFor="let l of leagues" [value]="l.id">{{ l.name }}</option>
+            </select>
+        </div>
+
+        <div class="form-button-group">
+            <button class="form-btn" (click)="clear()">Clear</button>
+            <button class="form-btn" #submitButton (click)="submit();" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

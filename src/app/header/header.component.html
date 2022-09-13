@@ -7,5 +7,14 @@
         <li routerLinkActive="active">
             <a [routerLink]="['/teams']">Teams</a>
         </li>
+        <div class="registration-block">
+            <li routerLink="active">
+                <a class="register" [routerLink]="['/register']">Register</a>/
+                <a class="login" [routerLink]="['/login']">Login</a>
+            </li>
+            <li routerLink="active">
+                <a>Logout</a>
+            </li>
+        </div>
     </ul>
 </nav>

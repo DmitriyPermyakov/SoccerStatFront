@@ -1,7 +1,12 @@
-<div class="league-card">
+<div class="league-card" [routerLink]="['/leagues/standings']">
+    <div class="popup" appClickOutside (clickedOutside)="showPopup()" *ngIf="!isButtonVisible">
+        <button (click)="edit();$event.stopPropagation();">Edit</button>
+        <button (click)="delete();$event.stopPropagation();">Delete</button>
+    </div>
+    <button type="button" class="edit-delete-btn" [ngStyle]="{ visibility : isButtonVisible ? 'visible' : 'hidden' }" (click)="showPopup();$event.stopPropagation()"></button>
     <img src="../../assets/img/Bundesliga.png" alt="league">
     <div class="league-desc">
-        <p class="league-name">Seria A</p>
-        <p class="league-country">Italia</p>
+        <p class="league-name">{{ league.name }}</p>
+        <p class="league-country">{{ league.country}}</p>
     </div>
 </div>

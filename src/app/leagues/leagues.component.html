@@ -1,9 +1,6 @@
-<div class="wrapper">
-    <app-league-card></app-league-card>
-    <app-league-card></app-league-card>
-    <app-league-card></app-league-card>
-    <app-league-card></app-league-card>
-    <app-league-card></app-league-card>
-    <app-league-card></app-league-card>
-    <app-league-card></app-league-card>
+<app-search (onFilter)="searchTerm = $event"></app-search>
+<button class="btn-add" type="button" [routerLink]="['/admin/leagues/create']"></button>
+<div class="wrapper" *ngIf="leagues">
+    <app-league-card *ngFor="let l of leagues | search: searchTerm" [league]="l" (onLeagueDelete)="updateLeagues($event)"></app-league-card>
+
 </div>

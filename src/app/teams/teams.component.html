@@ -1,10 +1,5 @@
-<div class="wrapper">
-    <app-team-card></app-team-card>
-    <app-team-card></app-team-card>
-    <app-team-card></app-team-card>
-    <app-team-card></app-team-card>
-    <app-team-card></app-team-card>
-    <app-team-card></app-team-card>
-    <app-team-card></app-team-card>
-    <router-outlet></router-outlet>
+<app-search (onFilter)="searchTerm = $event"></app-search>
+<button class="btn-add" type="button" [routerLink]="['/admin/teams/create']"></button>
+<div class="wrapper" *ngIf="teams">
+    <app-team-card *ngFor=" let t of teams | search: searchTerm" [team]=" t" (onDeleteTeam)="updateTeams($event)"></app-team-card>
 </div>

@@ -10,6 +10,15 @@ import { TeamCardComponent } from './team-card/team-card.component';
 import { LeagueCardComponent } from './league-card/league-card.component';
 import { SearchComponent } from './search/search.component';
 import { StandingsComponent } from './standings/standings.component';
+import { PlayersComponent } from './players/players.component';
+import { PlayerCardComponent } from './player-card/player-card.component';
+import { SharedModule } from './shared/shared.module';
+import { ModalComponent } from './modal/modal.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { EditDeleteButtonComponent } from './admin/edit-delete-button/edit-delete-button.component';
+import { ClickOutsideDirective } from './click-outside.directive';
+import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -21,8 +30,19 @@ import { StandingsComponent } from './standings/standings.component';
     LeagueCardComponent,
     SearchComponent,
     StandingsComponent,
+    PlayersComponent,
+    PlayerCardComponent,
+    ModalComponent,
+    SearchPipe,
+    EditDeleteButtonComponent,
+    ClickOutsideDirective,
+    RegisterComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
