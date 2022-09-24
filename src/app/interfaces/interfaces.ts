@@ -23,7 +23,7 @@ export interface LoginRequest {
     password: string
 }
 
-export interface LoginResponse {
+export interface Token {
     accessToken: string,
     refreshToken: string
 }

@@ -1,26 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
+import * as moment from 'moment';
+
 import { environment } from 'src/environments/environment';
-import { LoginRequest, LoginResponse, RegisterRequest } from '../interfaces/interfaces';
+import { LoginRequest, Token, RegisterRequest } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  get token(): string {
-    return ''
-  }
-
-  private setToken(response: LoginResponse) {
-    console.log(response);
+  public setToken(response: Token) {
+    localStorage.setItem('accessToken', response.accessToken);
+    localStorage.setItem('refreshToken', response.refreshToken);
   }
 
   constructor(private http: HttpClient) { }
 
-  public isAuthenticated(): boolean {
-    return !!this.token;
+  public get isAuthenticated(): boolean {
+    return !this.isTokenExpired(localStorage.getItem('accessToken'));
+  }
+
+  public get isRefreshTokenValid(): boolean {
+    return !this.isTokenExpired(localStorage.getItem('refreshToken'));
+  }
+
+  isTokenExpired(token: string): boolean {
+    if(!token) {
+      return true;
+    }
+    const exp = (JSON.parse( atob(token.split('.')[1]))).exp * 1000;
+    return new Date() > new Date(exp);
   }
 
   register(registerRequest: RegisterRequest): Observable<string> {
@@ -30,22 +41,38 @@ export class AuthService {
       )
   }
 
-  login(loginRequest: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${environment.authenticationServerUrl}/login`, loginRequest)
+  login(loginRequest: LoginRequest): Observable<Token> {
+    return this.http.post<Token>(`${environment.authenticationServerUrl}/login`, loginRequest)
       .pipe(
-        tap((response) => {
-          this.setToken(response)
-        }),
         catchError(this.handleError.bind(this))
       )
   }
 
   logout() {
-
+    this.http.post(`${environment.authenticationServerUrl}/logout`, null, {
+      params: {
+        'refreshToken': localStorage.getItem('refreshToken')
+      }
+    }).pipe(
+        catchError(this.handleError.bind(this))
+      ).subscribe(() => {
+        localStorage.clear();
+      })
   }
 
-  refreshToken() {
+  refreshToken(): Observable<Token> {
+    const refreshRequest: Token = {
+      accessToken: localStorage.getItem('accessToken'),
+      refreshToken: localStorage.getItem('refreshToken')
+    }
 
+    return this.http.post<Token>(`${environment.authenticationServerUrl}/refreshToken`, refreshRequest)
+      .pipe(
+        catchError(this.handleError.bind(this)),
+        tap((response) => {
+          localStorage.setItem('accessToken', response.accessToken);
+        })
+      )
   }
 
   handleError(error) {

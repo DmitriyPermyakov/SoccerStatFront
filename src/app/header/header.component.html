@@ -12,8 +12,8 @@
                 <a class="register" [routerLink]="['/register']">Register</a>/
                 <a class="login" [routerLink]="['/login']">Login</a>
             </li>
-            <li routerLink="active">
-                <a>Logout</a>
+            <li>
+                <a (click)="auth.logout()">Logout</a>
             </li>
         </div>
     </ul>

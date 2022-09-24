@@ -18,6 +18,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import { EditDeleteButtonComponent } from './admin/edit-delete-button/edit-delete-button.component';
 import { ClickOutsideDirective } from './click-outside.directive';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     SearchPipe,
     EditDeleteButtonComponent,
     ClickOutsideDirective,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
