@@ -39,6 +39,7 @@ export class LoginComponent implements OnDestroy {
       .subscribe(
         (response:Token) => {
           this.auth.setToken(response);
+          this.toMainPage();
         },
         (error) => {
           console.log(error)
