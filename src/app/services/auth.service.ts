@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import * as moment from 'moment';
 
 import { environment } from 'src/environments/environment';
 import { LoginRequest, Token, RegisterRequest } from '../interfaces/interfaces';

@@ -1,8 +1,16 @@
 <div class="form-background" (click)="toCards()">
     <form class="create-update-form" [formGroup]="form" (click)="$event.stopPropagation()">
         <div class="form-group">
-            <img class="form-image" src="" alt="icon">
-            <!-- <input class="form-image-input" type="file" id="leagueimage" formControlName="leagueimage"> -->
+            <input class="form-image-input" #file 
+                type="file" 
+                accept="image/*"    
+                [disabled]="uploading"           
+                (change)="uploadImage(file.files)">
+            <img class="form-image" 
+                src={{icon}} 
+                ngbTooltip="Upload"
+                alt="icon"
+                (click)="file.click()">
         </div>
         <div class="form-group">
             <label class="create-form-label" for="leaguename">League name</label>

@@ -20,7 +20,6 @@ import { ClickOutsideDirective } from './click-outside.directive';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

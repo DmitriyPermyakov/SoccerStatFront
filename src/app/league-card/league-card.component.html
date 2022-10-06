@@ -4,7 +4,7 @@
         <button (click)="delete();$event.stopPropagation();">Delete</button>
     </div>
     <button type="button" class="edit-delete-btn" [ngStyle]="{ visibility : isButtonVisible ? 'visible' : 'hidden' }" (click)="showPopup();$event.stopPropagation()"></button>
-    <img src="../../assets/img/Bundesliga.png" alt="league">
+    <img src={{league.imageUrl}} alt="league">
     <div class="league-desc">
         <p class="league-name">{{ league.name }}</p>
         <p class="league-country">{{ league.country}}</p>

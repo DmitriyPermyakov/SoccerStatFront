@@ -96,15 +96,18 @@ body {
   display: block;
   margin: 2em 0 2em;
   width: 150px;
-  height: 150px;
+  height: 150px;     
   border: 1px solid var(--border-color);
   border-radius: 50%;
   background-color: var(--main-bg);
+  object-fit: cover;
+  
   cursor: pointer;
+  
 
   &:hover {
     box-shadow: 0 0 3px 2px var(--outline-color);
-    border-color: transparent;
+    border-color: transparent;    
   }
 }
 
