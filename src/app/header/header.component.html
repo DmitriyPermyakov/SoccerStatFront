@@ -7,14 +7,17 @@
         <li routerLinkActive="active">
             <a [routerLink]="['/teams']">Teams</a>
         </li>
-        <div class="registration-block">
-            <li routerLinkActive="active">
+        <div class="registration-block" >
+            <li routerLinkActive="active" *ngIf="!auth.isAuthenticated; else logout">
                 <a class="register" [routerLink]="['/register']">Register</a>/
                 <a class="login" [routerLink]="['/login']">Login</a>
-            </li>
-            <li>
-                <a (click)="auth.logout()">Logout</a>
-            </li>
+            </li>            
         </div>
     </ul>
 </nav>
+
+<ng-template #logout>
+    <li routerLink="active">
+        <a (click)="auth.logout()">Logout</a>
+    </li>
+</ng-template>
