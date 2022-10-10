@@ -20,6 +20,8 @@
   background-color: var(--secondary-bg);
 
   overflow-y: hidden;
+
+  transition: transform .1s;
   img {
     display: inline-block;
     width: 100%;
@@ -31,7 +33,7 @@
     object-fit: cover;
   }
   &:hover {
-    box-shadow: 0px 0px 10px var(--ouline-color);
+    box-shadow: 0px 0px 10px var(--outline-color);
     transform: scale(1.01);
   }
 }

@@ -21,7 +21,7 @@ export class CreateLeagueComponent implements OnInit, OnDestroy {
 
   private createSub: Subscription;
   private uploadProgress: number = 0;
-  private imageUrl: string = '';  
+  private imageUrl: string = environment.defaultIcon;  
 
   constructor(private leagueService: LeagueService,
      private router: Router,
