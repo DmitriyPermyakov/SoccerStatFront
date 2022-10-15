@@ -19,7 +19,7 @@ export class CreateLeagueComponent implements OnInit, OnDestroy {
   public uploading: boolean = false;
   @ViewChild('submitButton') button;
 
-  private createSub: Subscription;
+  private createSub: Subscription;  
   private uploadProgress: number = 0;
   private imageUrl: string = environment.defaultIcon;  
 
@@ -29,7 +29,7 @@ export class CreateLeagueComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if(this.createSub)
-      this.createSub.unsubscribe();
+      this.createSub.unsubscribe();    
   }
 
   ngOnInit(): void {

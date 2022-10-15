@@ -1,9 +1,9 @@
-<div class="team-card" [routerLink]="['/teams/standings']">
+<div class="team-card" [routerLink]="['/teams/standings', team.id]">
     <div class="popup" appClickOutside (clickedOutside)="showPopup()" *ngIf="!isButtonVisible">
         <button (click)="edit();$event.stopPropagation();">Edit</button>
         <button (click)="delete();$event.stopPropagation();">Delete</button>
     </div>
     <button type="button" class="edit-delete-btn" [ngStyle]="{ visibility : isButtonVisible ? 'visible' : 'hidden' }" (click)="showPopup();$event.stopPropagation()"></button>
-    <img src="../../assets/img/bayer.png" alt="bayer">
+    <img src={{team.imageUrl}} alt="bayer">
     <p class="team-name">{{ team.name }}</p>
 </div>

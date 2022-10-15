@@ -1,8 +1,19 @@
 <div class="form-background" (click)="toCards()">
     <form class="create-update-form" [formGroup]="form" (click)="$event.stopPropagation()">
         <div class="form-group">
-            <img class="form-image" [src]="" alt="icon">
-            <input class="form-image-input" type="file" id="leagueimage" formControlName="leagueimage">
+            <img class="form-image" 
+                src={{icon}} 
+                alt="icon"
+                (click)="file.click()"
+            >
+            <input class="form-image-input" 
+                type="file" 
+                accept="image/*"
+                id="leagueimage"
+                #file
+                [disabled]="uploading"
+                (change)="uploadImage(file.files)"
+            >
         </div>
 
         <div class="form-group">

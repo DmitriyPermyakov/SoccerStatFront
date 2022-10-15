@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/leagues', pathMatch: 'full' },
   { path: 'leagues', component: LeaguesComponent },
   { path: 'teams', component: TeamsComponent },
-  { path: 'teams/standings', component: StandingsComponent },
-  { path: 'leagues/standings', component: StandingsComponent, canActivate: [AuthGuardService] },
+  { path: 'teams/standings/:id', component: StandingsComponent },
+  { path: 'leagues/standings/:id', component: StandingsComponent, canActivate: [AuthGuardService] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
