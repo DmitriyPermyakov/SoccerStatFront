@@ -24,7 +24,7 @@
         <div class="form-group">
             <label class="create-form-label" for="league">League</label>
             <select class="form-create-name" formControlName="leaguename">
-                <option disabled="false">Select league</option>
+                <option disabled="true" selected>Select league</option>
                 <option *ngFor="let l of leagues" [ngValue]="l.id">{{ l.name }}</option>
             </select>
         </div>

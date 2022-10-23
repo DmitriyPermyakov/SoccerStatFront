@@ -1,63 +1,7 @@
-.container {
-  padding: 0 8em;
+.standings {    
+    font-size: 1.1em;
 }
 
-.table {
-
-  margin: 25px 0;
-  width: 100%;
-  min-width: 400px;
-
-  border-radius: 0.5em;
-  border-collapse: collapse;
-  color: var(--secondary-text-color);
-  text-align: center;
-  overflow: hidden;
-  tr {
-    border-bottom: 1px solid var(--main-bg);
-    background-color: var(--secondary-bg);
-  }
-  td a {
-    white-space: nowrap;
-    color: inherit;
-  }
-  tr:nth-of-type(even) {
-    background-color: #302e44;
-  }
-  td {
-    padding: 1em 0.5em;
-
-  }
-  tr:hover {
-    background-color: #212133;
-  }
-}
-
-.status {
-  font-size: 0.9em;
-}
-.live {
-  padding: 2px 4px;
-  border-radius: 2px;
-  background-color: rgb(226, 77, 77);
-}
-
-.team-row {
-  display: flex;
-  flex: 1 1 0%;
-  justify-content: center;
-  img {
-    padding-right: 10px;
-    width: 30px;
-  }
-
-}
-
-.team {
-  display: flex;
-  flex: 1 1 0%;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 .5em;
+.standings td {
+    padding: 1em;
 }

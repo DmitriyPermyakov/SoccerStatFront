@@ -1,0 +1,122 @@
+<form class="form-background score" [formGroup]="form">
+    <table class="table">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th class="status">Status</th>
+            <th>League</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Score&nbsp;(F&nbsp;:&nbsp;F)&nbsp;(E&nbsp;:&nbsp;E)&nbsp;(P&nbsp;:&nbsp;P)</th>
+        </tr>
+        <tr>
+            <td>
+                <input class="form-create-standings" 
+                    type="date"
+                    formControlName="dateInput"
+                    (click)="openPicker($event.target)" >
+            </td>
+            <td>
+                <input class="form-create-standings" 
+                    type="time"
+                    formControlName="timeInput" 
+                    (click)="openPicker($event.target)">
+            </td>
+            <td>
+                <select class="form-create-standings" formControlName="statusInput">
+                    <option disabled="true" value="" selected>Status</option>
+                    <option value="SCHEDULED">SCHEDULED</option>
+                    <option value="LIVE">LIVE</option>
+                    <option value="IN_PLAY">IN PLAY</option>
+                    <option value="PAUSED">PAUSED</option>
+                    <option value="FINISHED">FINISHED</option>
+                    <option value="POSTPONED">POSTPONED</option>
+                    <option value="SUSPENDED">SUSPENDED</option>
+                    <option value="CANCELED">CANCELED</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-create-standings" formControlName="league">
+                    <option value="" disabled="true" selected>Select league</option>
+                    <option *ngFor="let l of leagues" [value]="l.id">{{l.name}}</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-create-standings" formControlName="homeTeam" (change)="validateTeam()">
+                    <option value="" disabled="true" selected>Select home team</option>
+                    <option *ngFor="let t of teams" [value]="t.id">{{t.name}}</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-create-standings" formControlName="awayTeam" (change)="validateTeam()">
+                    <option value="" disabled="true" selected>Select away team</option>
+                    <option *ngFor="let t of teams" [value]="t.id">{{t.name}}</option>
+                </select>
+            </td>
+            <td class="score">
+                <div>
+                    <input class="form-create-score" 
+                        placeholder="F" 
+                        type="number" 
+                        min="0" 
+                        max="100"
+                        formControlName="homeTeamFulltime"
+                        (click)="clickScore($event)"
+                        (keyup)="validateScoreInput($event)">
+                    <input class="form-create-score" 
+                        placeholder="F" 
+                        type="number" 
+                        min="0" 
+                        max="100"
+                        formControlName="awayTeamFulltime"
+                        (click)="clickScore($event)"
+                        (keyup)="validateScoreInput($event)">
+                </div>
+                <div>
+                    <input class="form-create-score" 
+                        placeholder="E" 
+                        type="number" 
+                        min="0" 
+                        max="100"
+                        formControlName="homeTeamExtratime"
+                        (click)="clickScore($event)"
+                        (keyup)="validateScoreInput($event)">
+                    <input class="form-create-score" 
+                        placeholder="E" 
+                        type="number" 
+                        min="0" 
+                        max="100"
+                        formControlName="awayTeamExtratime"
+                        (click)="clickScore($event)"
+                        (keyup)="validateScoreInput($event)">
+                </div>
+                <div>
+                    <input class="form-create-score" 
+                        placeholder="P" 
+                        type="number" 
+                        min="0" 
+                        max="100"
+                        formControlName="homeTeamPenalties"
+                        (click)="clickScore($event)"
+                        (keyup)="validateScoreInput($event)">
+                    <input class="form-create-score" 
+                        placeholder="P" 
+                        type="number" 
+                        min="0" 
+                        max="100"
+                        formControlName="awayTeamPenalties"
+                        (click)="clickScore($event)"
+                        (keyup)="validateScoreInput($event)">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="form-button-group">
+        <button class="form-btn" (click)="clear()">Clear</button>
+        <button class="form-btn" 
+            [disabled]="form.invalid || submitted"
+            #submitButton 
+            type="submit"
+            (click)="submit();">Submit</button>
+    </div>
+</form>

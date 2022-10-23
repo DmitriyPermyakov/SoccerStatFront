@@ -19,6 +19,7 @@ import { EditDeleteButtonComponent } from './admin/edit-delete-button/edit-delet
 import { ClickOutsideDirective } from './click-outside.directive';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { StatusPipe } from './pipes/status.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoginComponent } from './login/login.component';
     EditDeleteButtonComponent,
     ClickOutsideDirective,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    StatusPipe 
   ],
   imports: [
     BrowserModule,

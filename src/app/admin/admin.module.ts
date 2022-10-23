@@ -6,13 +6,15 @@ import { CreateLeagueComponent } from './league/create-league/create-league.comp
 import { UpdateLeagueComponent } from './league/update-league/update-league.component';
 import { CreateTeamComponent } from './team/create-team/create-team.component';
 import { UpdateTeamComponent } from './team/update-team/update-team.component';
+import { CreateStandingsComponent } from './standings/create-standings/create-standings.component';
 
 @NgModule({
   declarations: [
     CreateLeagueComponent,
     CreateTeamComponent,
     UpdateLeagueComponent,
-    UpdateTeamComponent
+    UpdateTeamComponent,
+    CreateStandingsComponent
   ],
   imports: [
     AppAdminRoutingModule,

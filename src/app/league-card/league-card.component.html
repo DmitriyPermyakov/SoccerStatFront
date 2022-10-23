@@ -1,9 +1,13 @@
-<div class="league-card" [routerLink]="['/leagues/standings']">
+<div class="league-card" [routerLink]="['/leagues/standings', league.id]" [queryParams]="{'type': 'league'}">
     <div class="popup" appClickOutside (clickedOutside)="showPopup()" *ngIf="!isButtonVisible">
         <button (click)="edit();$event.stopPropagation();">Edit</button>
         <button (click)="delete();$event.stopPropagation();">Delete</button>
     </div>
-    <button type="button" class="edit-delete-btn" [ngStyle]="{ visibility : isButtonVisible ? 'visible' : 'hidden' }" (click)="showPopup();$event.stopPropagation()"></button>
+    <button type="button" 
+        class="edit-delete-btn" 
+        [ngStyle]="{ visibility : isButtonVisible ? 'visible' : 'hidden' }" 
+        (click)="showPopup();
+        $event.stopPropagation()"></button>
     <img src={{league.imageUrl}} alt="league">
     <div class="league-desc">
         <p class="league-name">{{ league.name }}</p>
